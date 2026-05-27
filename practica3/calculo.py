@@ -1,0 +1,57 @@
+"""
+Cálculo de ganancias en Python (misma lógica que la consulta SQL).
+
+Fórmula por cada venta de un autor en un libro:
+    ganancia = cantidad * precio * (royaltyper / 100)
+"""
+
+from decimal import Decimal
+
+import pandas as pd
+
+
+def a_numero(valor) -> float:
+    """Convierte valores de MySQL (Decimal, None) a float."""
+    if valor is None:
+        return 0.0
+    if isinstance(valor, Decimal):
+        return float(valor)
+    return float(valor)
+
+
+def ganancia_de_una_venta(cantidad, precio, porcentaje_autor) -> float:
+    """
+    Una sola línea de venta.
+    porcentaje_autor = titleauthor.royaltyper (ej. 50 significa 50 %)
+    """
+    return a_numero(cantidad) * a_numero(precio) * a_numero(porcentaje_autor) / 100.0
+
+
+def calcular_ganancias_en_python(ventas_detalle: pd.DataFrame) -> pd.DataFrame:
+    """
+    Recorre cada fila de ventas_detalle, calcula la ganancia de esa línea
+    y luego agrupa por au_id:
+      Ganancia = suma de todas sus líneas (como SUM en SQL)
+    """
+    if ventas_detalle.empty:
+        return pd.DataFrame(columns=["au_id", "Ganancia"])
+
+    tabla = ventas_detalle.copy()
+    tabla["ganancia_linea"] = tabla.apply(
+        lambda fila: ganancia_de_una_venta(
+            fila["qty"], fila["price"], fila["royaltyper"]
+        ),
+        axis=1,
+    )
+
+    resumen = []
+    for au_id, filas_del_autor in tabla.groupby("au_id"):
+        ganancias = filas_del_autor["ganancia_linea"]
+        resumen.append(
+            {
+                "au_id": au_id,
+                "Ganancia": round(ganancias.sum(), 2),
+            }
+        )
+
+    return pd.DataFrame(resumen).sort_values("Ganancia", ascending=False)
