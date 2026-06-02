@@ -1,18 +1,17 @@
 """
 Practica 3 - Validacion SQL vs Python
 """
-
-from __future__ import annotations
-
+from practica3.conexion import cargar_datos_desde_mysql
 from practica3.calculo import calcular_ganancias_en_python
 from practica3.comparacion import comparar_sql_vs_python
-from practica3.conexion import cargar_datos_desde_mysql
 from practica3.reporte import imprimir_resultados
 
 
 def ejecutar_validacion() -> bool:
     
-    resultado_sql, ventas_detalle = cargar_datos_desde_mysql()
+    resultado_sql, ventas_detalle, vista_editorial, comparacion_global = (
+        cargar_datos_desde_mysql()
+    )
     resultado_python = calcular_ganancias_en_python(ventas_detalle)
     validacion_ok, comparacion = comparar_sql_vs_python(resultado_sql, resultado_python)
 
@@ -21,6 +20,8 @@ def ejecutar_validacion() -> bool:
         resultado_python=resultado_python,
         comparacion=comparacion,
         validacion_ok=validacion_ok,
+        vista_editorial=vista_editorial,
+        comparacion_global=comparacion_global,
     )
     return validacion_ok
 
