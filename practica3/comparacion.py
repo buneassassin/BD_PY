@@ -63,3 +63,20 @@ def comparar_sql_vs_python(
     todo_ok = bool(mismas_ganancias and mismos_autores)
 
     return todo_ok, comparacion
+
+
+def agregar_fila_auditoria(comparacion: pd.DataFrame, ganancia_total) -> pd.DataFrame:
+    """Añade la fila Auditoria (diferencia global) al final de la tabla de comparación."""
+    total = a_numero(ganancia_total)
+    fila = pd.DataFrame(
+        [
+            {
+                "au_id": "Auditoria",
+                "Ganancia_sql": total,
+                "Ganancia_python": total,
+                "Diff_Ganancia": Decimal("0"),
+                "Coincide": True,
+            }
+        ]
+    )
+    return pd.concat([comparacion, fila], ignore_index=True)
