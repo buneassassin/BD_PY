@@ -9,7 +9,7 @@ from practica3.reporte import imprimir_resultados
 
 def ejecutar_validacion() -> bool:
     
-    resultado_sql, ventas_detalle = cargar_datos_desde_mysql()
+    resultado_sql, ventas_detalle, vista_editorial = cargar_datos_desde_mysql()
     resultado_python = calcular_ganancias_en_python(ventas_detalle)
     validacion_ok, comparacion = comparar_sql_vs_python(resultado_sql, resultado_python)
 
@@ -18,6 +18,7 @@ def ejecutar_validacion() -> bool:
         resultado_python=resultado_python,
         comparacion=comparacion,
         validacion_ok=validacion_ok,
+        vista_editorial=vista_editorial,
     )
     return validacion_ok
 

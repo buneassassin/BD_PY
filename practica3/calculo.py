@@ -40,8 +40,6 @@ def calcular_ganancias_en_python(ventas_detalle: pd.DataFrame) -> pd.DataFrame:
     y luego agrupa por au_id:
       Ganancia = suma de todas sus líneas (como SUM en SQL)
     """
-    if ventas_detalle.empty:
-        return pd.DataFrame(columns=["au_id", "Ganancia"])
 
     tabla = ventas_detalle.copy()
     tabla["ganancia_linea"] = tabla.apply(
