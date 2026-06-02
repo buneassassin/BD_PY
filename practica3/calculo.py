@@ -10,21 +10,28 @@ from decimal import Decimal
 import pandas as pd
 
 
-def a_numero(valor) -> float:
-    """Convierte valores de MySQL (Decimal, None) a float."""
+def a_numero(valor) -> Decimal:
+    """Convierte valores de MySQL a Decimal (misma precisión que DECIMAL en MySQL)."""
     if valor is None:
-        return 0.0
+        return Decimal("0")
     if isinstance(valor, Decimal):
-        return float(valor)
-    return float(valor)
+        return valor
+    if isinstance(valor, int):
+        return Decimal(valor)
+    return Decimal(str(valor))
 
 
-def ganancia_de_una_venta(cantidad, precio, porcentaje_autor) -> float:
+def ganancia_de_una_venta(cantidad, precio, porcentaje_autor) -> Decimal:
     """
     Una sola línea de venta.
     porcentaje_autor = titleauthor.royaltyper (ej. 50 significa 50 %)
     """
-    return a_numero(cantidad) * a_numero(precio) * a_numero(porcentaje_autor) / 100.0
+    return (
+        a_numero(cantidad)
+        * a_numero(precio)
+        * a_numero(porcentaje_autor)
+        / Decimal("100")
+    )
 
 
 def calcular_ganancias_en_python(ventas_detalle: pd.DataFrame) -> pd.DataFrame:
@@ -50,7 +57,7 @@ def calcular_ganancias_en_python(ventas_detalle: pd.DataFrame) -> pd.DataFrame:
         resumen.append(
             {
                 "au_id": au_id,
-                "Ganancia": round(ganancias.sum(), 2),
+                "Ganancia": sum(ganancias, Decimal("0")),
             }
         )
 

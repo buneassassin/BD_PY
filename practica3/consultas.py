@@ -7,7 +7,7 @@ Hay DOS consultas distintas:
 CONSULTA_SQL = """
 SELECT
     ta.au_id,
-    ROUND(SUM(s.qty * t.price * ta.royaltyper / 100.0), 2) AS Ganancia
+    SUM(s.qty * t.price * ta.royaltyper / 100.0) AS Ganancia
 FROM titleauthor AS ta
 INNER JOIN titles AS t ON ta.title_id = t.title_id
 INNER JOIN sales AS s ON s.title_id = t.title_id

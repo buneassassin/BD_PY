@@ -1,12 +1,9 @@
 """
 Practica 3 - Validacion SQL vs Python
 """
-
-from __future__ import annotations
-
+from practica3.conexion import cargar_datos_desde_mysql
 from practica3.calculo import calcular_ganancias_en_python
 from practica3.comparacion import comparar_sql_vs_python
-from practica3.conexion import cargar_datos_desde_mysql
 from practica3.reporte import imprimir_resultados
 
 
