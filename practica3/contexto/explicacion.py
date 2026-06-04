@@ -1,5 +1,5 @@
 """
-Texto para explicar el flujo al profesor (python practica3_validacion.py --explicar).
+Texto para explicar el flujo al profesor (python validacion_practicas.py, elige 3).
 """
 
 
@@ -47,7 +47,7 @@ def mostrar_explicacion() -> None:
   practica3/calculo.py      -> formula y agrupacion en Python
   practica3/comparacion.py  -> SQL vs Python
   practica3/reporte.py      -> imprimir tablas
-  practica3_validacion.py   -> programa principal
+  validacion_practicas.py   -> programa principal (elige 3 o 4)
 
 """
     )
