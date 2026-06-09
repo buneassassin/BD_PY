@@ -1,97 +1,109 @@
 """
-Consultas de la practica 4 (solo sales, titles, stores):
+Consultas de la practica 4 (Northwind):
 
-  1) CONSULTA_SQL              -> MAX por año y región (resultado principal)
-  2) CONSULTA_PY               -> detalle fila a fila para Python
-  3) CONSULTA_TOTAL_AGRUPADO   -> suma global con las 3 tablas (todos los productos)
-  4) CONSULTA_TOTAL_VENTAS     -> suma global sales + titles
-  5) CONSULTA_SIN_TIENDA       -> ventas sin tienda en stores
-  6) CONSULTA_RESUMEN_ANIO     -> totales por año (auditoría)
+  1) CONSULTA_SQL          -> MySQL: producto(s) con MAX ganancia por anio y region
+  2) CONSULTA_PY           -> detalle fila a fila para Python
+  3) CONSULTA_TOTAL_REGION -> suma global con region de empleado
+  4) CONSULTA_TOTAL_VENTAS -> suma global Northwind (order details + orders)
+  5) CONSULTA_RANKING     -> todas las ganancias + Posicion (auditoria sin WHERE)
+
+Region = employeeterritories -> territories -> region (via orders.EmployeeID)
+Ganancia linea = Quantity * UnitPrice
+Empates: varios productos con la misma ganancia maxima en el mismo anio/region.
 """
 
-CONSULTA_SQL = """
+_EMPLEADO_REGION = """
+    SELECT DISTINCT et.EmployeeID, t.RegionID
+    FROM employeeterritories AS et
+    INNER JOIN territories AS t ON et.TerritoryID = t.TerritoryID
+"""
+
+CONSULTA_SQL = f"""
 SELECT
-    p.Anio,
-    p.Region,
-    p.Producto,
-    p.Ganancia
+    ventas.Anio,
+    ventas.RegionID,
+    TRIM(r.RegionDescription) AS Region,
+    ventas.Producto,
+    ventas.Ganancia
 FROM (
     SELECT
-        SUBSTRING(s.ord_date, 1, 4) AS Anio,
-        st.state AS Region,
-        t.title_id AS Producto,
-        SUM(s.qty * t.price) AS Ganancia
-    FROM sales AS s
-    INNER JOIN titles AS t ON s.title_id = t.title_id
-    INNER JOIN stores AS st ON s.stor_id = st.stor_id
-    GROUP BY Anio, Region, Producto
-) AS p
-INNER JOIN (
-    SELECT
-        Anio,
-        Region,
-        MAX(Ganancia) AS Ganancia_max
-    FROM (
-        SELECT
-            SUBSTRING(s.ord_date, 1, 4) AS Anio,
-            st.state AS Region,
-            t.title_id AS Producto,
-            SUM(s.qty * t.price) AS Ganancia
-        FROM sales AS s
-        INNER JOIN titles AS t ON s.title_id = t.title_id
-        INNER JOIN stores AS st ON s.stor_id = st.stor_id
-        GROUP BY Anio, Region, Producto
-    ) AS por_producto
-    GROUP BY Anio, Region
-) AS m ON p.Anio = m.Anio
-    AND p.Region = m.Region
-    AND p.Ganancia = m.Ganancia_max
-ORDER BY p.Anio, p.Region
+        YEAR(o.OrderDate) AS Anio,
+        er.RegionID,
+        p.ProductName AS Producto,
+        SUM(od.Quantity * od.UnitPrice) AS Ganancia,
+        DENSE_RANK() OVER (
+            PARTITION BY YEAR(o.OrderDate), er.RegionID
+            ORDER BY SUM(od.Quantity * od.UnitPrice) DESC
+        ) AS dr
+    FROM `order details` AS od
+    INNER JOIN orders AS o ON od.OrderID = o.OrderID
+    INNER JOIN products AS p ON od.ProductID = p.ProductID
+    INNER JOIN ({_EMPLEADO_REGION}) AS er ON o.EmployeeID = er.EmployeeID
+    WHERE o.OrderDate IS NOT NULL
+    GROUP BY Anio, er.RegionID, p.ProductName
+) AS ventas
+INNER JOIN region AS r ON ventas.RegionID = r.RegionID
+WHERE ventas.dr = 1
+ORDER BY ventas.Anio, ventas.RegionID, ventas.Producto
 """
 
-CONSULTA_PY = """
+CONSULTA_PY = f"""
 SELECT
-    SUBSTRING(s.ord_date, 1, 4) AS Anio,
-    st.state AS Region,
-    t.title_id AS Producto,
-    s.stor_id,
-    s.ord_num,
-    s.qty,
-    t.price
-FROM sales AS s
-INNER JOIN titles AS t ON s.title_id = t.title_id
-INNER JOIN stores AS st ON s.stor_id = st.stor_id
-ORDER BY Anio, Region, Producto, s.ord_num
+    YEAR(o.OrderDate) AS Anio,
+    er.RegionID,
+    TRIM(r.RegionDescription) AS Region,
+    p.ProductName AS Producto,
+    od.Quantity,
+    od.UnitPrice
+FROM `order details` AS od
+INNER JOIN orders AS o ON od.OrderID = o.OrderID
+INNER JOIN products AS p ON od.ProductID = p.ProductID
+INNER JOIN ({_EMPLEADO_REGION}) AS er ON o.EmployeeID = er.EmployeeID
+INNER JOIN region AS r ON er.RegionID = r.RegionID
+WHERE o.OrderDate IS NOT NULL
+ORDER BY Anio, RegionID, Producto
 """
 
-CONSULTA_TOTAL_AGRUPADO = """
-SELECT SUM(s.qty * t.price) AS Ganancia_agrupada
-FROM sales AS s
-INNER JOIN titles AS t ON s.title_id = t.title_id
-INNER JOIN stores AS st ON s.stor_id = st.stor_id
+CONSULTA_TOTAL_REGION = f"""
+SELECT SUM(od.Quantity * od.UnitPrice) AS Ventas_total
+FROM `order details` AS od
+INNER JOIN orders AS o ON od.OrderID = o.OrderID
+INNER JOIN ({_EMPLEADO_REGION}) AS er ON o.EmployeeID = er.EmployeeID
+WHERE o.OrderDate IS NOT NULL
 """
 
 CONSULTA_TOTAL_VENTAS = """
-SELECT SUM(s.qty * t.price) AS Ganancia_ventas_general
-FROM sales AS s
-INNER JOIN titles AS t ON t.title_id = s.title_id
+SELECT SUM(od.Quantity * od.UnitPrice) AS Ventas_total
+FROM `order details` AS od
+INNER JOIN orders AS o ON od.OrderID = o.OrderID
+WHERE o.OrderDate IS NOT NULL
 """
 
-CONSULTA_SIN_TIENDA = """
-SELECT SUM(s.qty * t.price) AS total_sin_tienda
-FROM sales AS s
-INNER JOIN titles AS t ON t.title_id = s.title_id
-LEFT JOIN stores AS st ON s.stor_id = st.stor_id
-WHERE st.stor_id IS NULL
-"""
-
-CONSULTA_RESUMEN_ANIO = """
+# Auditoria: lista completa con ranking por (anio, region). Posicion = 1 es el maximo.
+CONSULTA_RANKING = f"""
 SELECT
-    SUBSTRING(s.ord_date, 1, 4) AS Anio,
-    SUM(s.qty * t.price) AS Ganancia_anio
-FROM sales AS s
-INNER JOIN titles AS t ON s.title_id = t.title_id
-INNER JOIN stores AS st ON s.stor_id = st.stor_id
-GROUP BY Anio
-ORDER BY Anio
+    ventas.Anio,
+    ventas.RegionID,
+    TRIM(r.RegionDescription) AS Region,
+    ventas.Producto,
+    ventas.Ganancia,
+    DENSE_RANK() OVER (
+        PARTITION BY ventas.Anio, ventas.RegionID
+        ORDER BY ventas.Ganancia DESC
+    ) AS Posicion
+FROM (
+    SELECT
+        YEAR(o.OrderDate) AS Anio,
+        er.RegionID,
+        p.ProductName AS Producto,
+        SUM(od.Quantity * od.UnitPrice) AS Ganancia
+    FROM `order details` AS od
+    INNER JOIN orders AS o ON od.OrderID = o.OrderID
+    INNER JOIN products AS p ON od.ProductID = p.ProductID
+    INNER JOIN ({_EMPLEADO_REGION}) AS er ON o.EmployeeID = er.EmployeeID
+    WHERE o.OrderDate IS NOT NULL
+    GROUP BY Anio, er.RegionID, p.ProductName
+) AS ventas
+INNER JOIN region AS r ON ventas.RegionID = r.RegionID
+ORDER BY ventas.Anio, ventas.RegionID, Posicion, ventas.Ganancia DESC, ventas.Producto
 """

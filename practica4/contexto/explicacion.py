@@ -7,38 +7,30 @@ def mostrar_explicacion() -> None:
     print(
         """
 ================================================================================
-  COMO OBTIENE LOS DATOS PYTHON - PRACTICA 4
+  PRACTICA 4 - FLUJO
 ================================================================================
 
-  PASO 1 - Conectar a MySQL
-  -------------------------
-  conexion.py abre la base "tienda".
+  SQL (ProductosMenosVendidos.sql)     -> MIN, solo SQL, pivote con empates
+  Python (validacion_practicas.py 4)   -> MAX, SQL + Python, misma estructura
 
-  PASO 2 - Dos lecturas de las mismas 3 tablas (sales, titles, stores)
-  --------------------------------------------------------------------
-  A) CONSULTA_SQL: agrupa por año, región y producto; luego MAX(Ganancia)
-     por cada par (año, región) y devuelve el producto ganador.
+  Consultas en consultas.py (como practica 3):
+    CONSULTA_SQL, CONSULTA_PY,
+    CONSULTA_TOTAL_REGION, CONSULTA_TOTAL_VENTAS
 
-  B) CONSULTA_PY: mismas 3 tablas sin MAX: cada fila es una venta con
-     Anio, Region, qty, price, etc.
+  Regiones (tabla region):
+    1 Eastern | 2 Westerns | 3 Northern | 4 Southern
 
-  PASO 3 - Python (calculo.py)
-  ----------------------------
-  Por cada fila:  ganancia = qty * price
-  Por cada (año, región, producto): Ganancia = suma de líneas
-  Por cada (año, región): elige el producto con Ganancia máxima
+  Ganancia linea = Quantity * UnitPrice
 
-  PASO 4 - Comparar (comparacion.py)
-  ----------------------------------
-  Se unen SQL y Python por (Anio, Region). Deben coincidir producto y ganancia.
+  Empates: si dos productos tienen la misma ganancia extrema en un anio/region,
+  se muestran juntos:  "Producto A, Producto B (123.4500)"
 
-  Región = stores.state. Año = SUBSTRING(ord_date, 1, 4).
+  Control de ventas en el reporte:
+    - Total general Northwind
+    - Total con region de empleado (base del ejercicio)
+    - Ventas por anio
+    - Ventas por anio y region (matriz 3 x 4)
 
 ================================================================================
-  Archivos
-================================================================================
-  practica4/consultas.py, calculo.py, comparacion.py, conexion.py, reporte.py
-  validacion_practicas.py -> programa principal (elige practica 3 o 4)
-
 """
     )

@@ -1,5 +1,11 @@
-"""Configuración de conexión (misma base que practica 3)."""
+"""
+Conexión a MySQL (base Northwind).
+"""
 
-from practica3.config import DB_CONFIG
-
-__all__ = ["DB_CONFIG"]
+DB_CONFIG = {
+    "host": "localhost",
+    "port": "3306",
+    "user": "root",
+    "password": "123456",
+    "database": "northwind",
+}

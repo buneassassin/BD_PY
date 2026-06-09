@@ -1,7 +1,8 @@
 """
 Abre la conexión a MySQL y trae los datos como tablas.
-Solo usa las 3 tablas del enunciado: sales, titles, stores.
 """
+
+import warnings
 
 import mysql.connector
 import pandas as pd
@@ -10,10 +11,15 @@ from practica4.config import DB_CONFIG
 from practica4.consultas import (
     CONSULTA_SQL,
     CONSULTA_PY,
-    CONSULTA_TOTAL_AGRUPADO,
+    CONSULTA_RANKING,
+    CONSULTA_TOTAL_REGION,
     CONSULTA_TOTAL_VENTAS,
-    CONSULTA_SIN_TIENDA,
-    CONSULTA_RESUMEN_ANIO,
+)
+
+warnings.filterwarnings(
+    "ignore",
+    message="pandas only supports SQLAlchemy connectable.*",
+    category=UserWarning,
 )
 
 
@@ -21,36 +27,26 @@ def abrir_conexion():
     return mysql.connector.connect(**DB_CONFIG)
 
 
+def _leer_sql(conexion, consulta):
+    return pd.read_sql(consulta, conexion)
+
+
 def cargar_datos_desde_mysql():
-    """
-    Devuelve:
-      resultado_sql      -> MySQL aplica MAX por año y región
-      ventas_detalle     -> cada venta en una fila
-      ventas_sin_tienda  -> ventas sin fila en stores (auditoría)
-      comparacion_global -> totales globales
-    """
     conexion = abrir_conexion()
 
-    resultado_sql = pd.read_sql(CONSULTA_SQL, conexion)
-    ventas_detalle = pd.read_sql(CONSULTA_PY, conexion)
-    ventas_sin_tienda = pd.read_sql(CONSULTA_SIN_TIENDA, conexion)
+    resultado_sql = _leer_sql(conexion, CONSULTA_SQL)
+    ventas_detalle = _leer_sql(conexion, CONSULTA_PY)
 
-    total_agrupado = pd.read_sql(CONSULTA_TOTAL_AGRUPADO, conexion).iloc[0, 0]
-    total_ventas = pd.read_sql(CONSULTA_TOTAL_VENTAS, conexion).iloc[0, 0]
-    total_sin_tienda = ventas_sin_tienda.iloc[0, 0]
-    if total_sin_tienda is None:
-        total_sin_tienda = 0
-    resumen_anio = pd.read_sql(CONSULTA_RESUMEN_ANIO, conexion)
+    total_region = _leer_sql(conexion, CONSULTA_TOTAL_REGION).iloc[0, 0]
+    total_general = _leer_sql(conexion, CONSULTA_TOTAL_VENTAS).iloc[0, 0]
 
     comparacion_global = {
-        "Ganancia_agrupada": total_agrupado,
-        "Ganancia_ventas_general": total_ventas,
-        "Diferencia": total_ventas - total_agrupado,
-        "total_sin_tienda": total_sin_tienda,
-        "resumen_anio": resumen_anio,
-        "suma_desglose": total_sin_tienda,
+        "Ventas_total_region": total_region,
+        "Ventas_total_general": total_general,
+        "Diferencia": total_general - total_region,
+        "ranking": _leer_sql(conexion, CONSULTA_RANKING),
     }
 
     conexion.close()
 
-    return resultado_sql, ventas_detalle, ventas_sin_tienda, comparacion_global
+    return resultado_sql, ventas_detalle, comparacion_global

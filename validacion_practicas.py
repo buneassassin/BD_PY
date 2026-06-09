@@ -32,7 +32,7 @@ def practica4():
     from practica4.comparacion import comparar_sql_vs_python
     from practica4.reporte import imprimir_resultados
 
-    sql, detalle, sin_tienda, global_ = cargar_datos_desde_mysql()
+    sql, detalle, global_ = cargar_datos_desde_mysql()
     python = calcular_maximos_en_python(detalle)
     ok, comparacion = comparar_sql_vs_python(sql, python)
     imprimir_resultados(
@@ -40,7 +40,6 @@ def practica4():
         resultado_python=python,
         comparacion=comparacion,
         validacion_ok=ok,
-        ventas_sin_tienda=sin_tienda,
         comparacion_global=global_,
     )
     return ok

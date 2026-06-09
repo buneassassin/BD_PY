@@ -1,0 +1,4155 @@
+{
+"SELECT \r\n                YEAR(o.OrderDate) AS Año, \r\n                er.RegionID, \r\n                p.ProductName, \r\n                SUM(od.Quantity * od.UnitPrice) AS GananciaTotal\r\n            FROM `order details` od\r\n            INNER JOIN orders o ON od.OrderID = o.OrderID\r\n            INNER JOIN products p ON od.ProductID = p.ProductID\r\n            INNER JOIN (\r\n                SELECT DISTINCT et.EmployeeID, t.RegionID AS RegionID\r\n                FROM employeeterritories et\r\n                INNER JOIN territories t ON et.TerritoryID = t.TerritoryID\r\n            ) er ON o.EmployeeID = er.EmployeeID\r\n            GROUP BY YEAR(o.OrderDate), er.RegionID, p.ProductName": [
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 5460.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 468.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 249.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 1123.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 1934.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 13650.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 1989.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 2145.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 858.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 6552.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 585.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Alice Mutton",
+		"GananciaTotal" : 468.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Aniseed Syrup",
+		"GananciaTotal" : 240.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Aniseed Syrup",
+		"GananciaTotal" : 760.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Aniseed Syrup",
+		"GananciaTotal" : 800.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Aniseed Syrup",
+		"GananciaTotal" : 200.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Aniseed Syrup",
+		"GananciaTotal" : 1040.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Aniseed Syrup",
+		"GananciaTotal" : 40.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 1381.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 882.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 147.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 588.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 1446.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 6581.1000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 2171.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 276.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 1196.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 3919.2000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Boston Crab Meat",
+		"GananciaTotal" : 460.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 8540.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 1360.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 163.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 14688.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 1088.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 1258.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 4760.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 3196.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 7276.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 2040.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Camembert Pierrot",
+		"GananciaTotal" : 5916.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 2050.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 1250.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 2000.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 11812.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 4687.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 500.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 250.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 1937.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 625.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Carnarvon Tigers",
+		"GananciaTotal" : 6875.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 1123.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 504.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 172.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 306.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 615.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 3204.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 1170.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 1548.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 3834.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 360.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Chai",
+		"GananciaTotal" : 1440.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 304.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 1884.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 1246.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 6156.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 779.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 285.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 380.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 3230.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 665.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 1349.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Chang",
+		"GananciaTotal" : 2280.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 604.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 2793.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 432.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 374.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 558.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 1224.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 2772.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 3042.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 810.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Chartreuse verte",
+		"GananciaTotal" : 540.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Chef Anton's Cajun Seasoning",
+		"GananciaTotal" : 352.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Chef Anton's Cajun Seasoning",
+		"GananciaTotal" : 1214.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Chef Anton's Cajun Seasoning",
+		"GananciaTotal" : 316.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Chef Anton's Cajun Seasoning",
+		"GananciaTotal" : 3185.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Chef Anton's Cajun Seasoning",
+		"GananciaTotal" : 1232.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Chef Anton's Cajun Seasoning",
+		"GananciaTotal" : 1320.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Chef Anton's Cajun Seasoning",
+		"GananciaTotal" : 1804.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Chef Anton's Gumbo Mix",
+		"GananciaTotal" : 1649.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Chef Anton's Gumbo Mix",
+		"GananciaTotal" : 544.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Chef Anton's Gumbo Mix",
+		"GananciaTotal" : 320.2500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Chef Anton's Gumbo Mix",
+		"GananciaTotal" : 85.4000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Chef Anton's Gumbo Mix",
+		"GananciaTotal" : 3202.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Chocolade",
+		"GananciaTotal" : 943.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Chocolade",
+		"GananciaTotal" : 497.2500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Chocolade",
+		"GananciaTotal" : 102.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 18972.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 10540.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 23451.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 10329.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 14229.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 3952.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 46112.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 11330.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Cte de Blaye",
+		"GananciaTotal" : 11067.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Escargots de Bourgogne",
+		"GananciaTotal" : 1643.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Escargots de Bourgogne",
+		"GananciaTotal" : 901.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Escargots de Bourgogne",
+		"GananciaTotal" : 795.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Escargots de Bourgogne",
+		"GananciaTotal" : 649.2500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Escargots de Bourgogne",
+		"GananciaTotal" : 1126.2500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Escargots de Bourgogne",
+		"GananciaTotal" : 795.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Escargots de Bourgogne",
+		"GananciaTotal" : 755.2500
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 112.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 44.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 112.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 84.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 1029.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 1001.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 28.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 140.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 518.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 161.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Filo Mix",
+		"GananciaTotal" : 154.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 344.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 3577.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 51.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 516.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 3315.3000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 1935.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 1591.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 2193.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 4837.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 1333.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Flotemysost",
+		"GananciaTotal" : 1182.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 290.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 64.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 40.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 288.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 344.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 132.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 50.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 405.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 62.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Geitost",
+		"GananciaTotal" : 37.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Genen Shouyu",
+		"GananciaTotal" : 248.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Genen Shouyu",
+		"GananciaTotal" : 62.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Genen Shouyu",
+		"GananciaTotal" : 186.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Genen Shouyu",
+		"GananciaTotal" : 930.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Genen Shouyu",
+		"GananciaTotal" : 387.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 1824.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 486.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 608.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 16112.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 11491.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 6961.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 190.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 4104.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 2052.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Gnocchi di nonna Alice",
+		"GananciaTotal" : 1292.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 350.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 1550.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 2540.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 720.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 1237.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 1125.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 4937.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 1325.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 1100.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 175.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Gorgonzola Telino",
+		"GananciaTotal" : 1112.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Grandma's Boysenberry Spread",
+		"GananciaTotal" : 600.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Grandma's Boysenberry Spread",
+		"GananciaTotal" : 120.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Grandma's Boysenberry Spread",
+		"GananciaTotal" : 2500.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Grandma's Boysenberry Spread",
+		"GananciaTotal" : 2375.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Grandma's Boysenberry Spread",
+		"GananciaTotal" : 1250.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Grandma's Boysenberry Spread",
+		"GananciaTotal" : 500.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Gravad lax",
+		"GananciaTotal" : 603.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Gravad lax",
+		"GananciaTotal" : 208.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Gravad lax",
+		"GananciaTotal" : 468.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Gravad lax",
+		"GananciaTotal" : 1768.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 288.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 154.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 36.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 90.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 639.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 360.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 667.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 90.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 1161.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 495.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 261.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Guaran Fantstica",
+		"GananciaTotal" : 540.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 1785.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 2505.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 9072.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 3420.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 1944.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 720.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 1800.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 1404.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 360.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Gudbrandsdalsost",
+		"GananciaTotal" : 1296.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 248.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 1519.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 372.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 2713.7000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 3220.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 602.9500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 544.6000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 602.9500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 350.1000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Gula Malacca",
+		"GananciaTotal" : 350.1000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 1245.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 2739.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 4222.8300
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 747.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 4151.4900
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 1840.0500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 3404.0700
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 749.5200
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 1655.1900
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Gumbr Gummibrchen",
+		"GananciaTotal" : 780.7500
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Gustaf's Knckebrd",
+		"GananciaTotal" : 100.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Gustaf's Knckebrd",
+		"GananciaTotal" : 2469.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Gustaf's Knckebrd",
+		"GananciaTotal" : 819.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Gustaf's Knckebrd",
+		"GananciaTotal" : 1050.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Gustaf's Knckebrd",
+		"GananciaTotal" : 1092.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Gustaf's Knckebrd",
+		"GananciaTotal" : 735.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Gustaf's Knckebrd",
+		"GananciaTotal" : 966.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 595.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 372.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 1140.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 1153.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 1550.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 5580.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 2108.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 5921.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Ikura",
+		"GananciaTotal" : 3720.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 380.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 1945.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 608.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 741.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 4275.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 1254.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 893.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 1995.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 684.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Inlagd Sill",
+		"GananciaTotal" : 1767.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 4268.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 736.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 1426.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 6366.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 2622.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 1104.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 3818.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 2346.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 460.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Ipoh Coffee",
+		"GananciaTotal" : 1932.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 531.3000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 192.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 154.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 289.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 1041.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 1958.9500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 1862.4500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 714.1000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 916.7500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 173.7000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Jack's New England Clam Chowder",
+		"GananciaTotal" : 1264.1500
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 144.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 96.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 105.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 86.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 9.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 232.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 486.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 120.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 1884.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 720.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 750.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Konbu",
+		"GananciaTotal" : 600.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 604.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 475.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 590.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 432.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 1972.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 990.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 784.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 3960.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 2970.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 3366.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Lakkalikri",
+		"GananciaTotal" : 648.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Laughing Lumberjack Lager",
+		"GananciaTotal" : 56.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Laughing Lumberjack Lager",
+		"GananciaTotal" : 868.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Laughing Lumberjack Lager",
+		"GananciaTotal" : 42.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Laughing Lumberjack Lager",
+		"GananciaTotal" : 770.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Laughing Lumberjack Lager",
+		"GananciaTotal" : 210.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Laughing Lumberjack Lager",
+		"GananciaTotal" : 336.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Laughing Lumberjack Lager",
+		"GananciaTotal" : 280.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 568.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 288.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 160.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 112.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 598.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 240.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 200.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 200.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Longlife Tofu",
+		"GananciaTotal" : 200.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 1428.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 336.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 756.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 84.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 5182.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 884.1000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 2989.1000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 842.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 968.3000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Louisiana Fiery Hot Pepper Sauce",
+		"GananciaTotal" : 1136.7000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Louisiana Hot Spiced Okra",
+		"GananciaTotal" : 408.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Louisiana Hot Spiced Okra",
+		"GananciaTotal" : 884.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Louisiana Hot Spiced Okra",
+		"GananciaTotal" : 816.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Louisiana Hot Spiced Okra",
+		"GananciaTotal" : 986.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Louisiana Hot Spiced Okra",
+		"GananciaTotal" : 408.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Louisiana Hot Spiced Okra",
+		"GananciaTotal" : 17.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 3816.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 2247.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 848.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 763.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 1611.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 21041.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 2650.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 2226.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 4611.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 4399.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Manjimup Dried Apples",
+		"GananciaTotal" : 530.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 1177.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 153.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 1600.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 1408.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 128.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 640.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 1984.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Mascarpone Fabioli",
+		"GananciaTotal" : 2080.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 640.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 240.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 1040.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 1820.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 1220.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 200.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 880.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 2900.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Maxilaku",
+		"GananciaTotal" : 560.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Mishi Kobe Niku",
+		"GananciaTotal" : 2134.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Mishi Kobe Niku",
+		"GananciaTotal" : 1552.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Mishi Kobe Niku",
+		"GananciaTotal" : 4850.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Mishi Kobe Niku",
+		"GananciaTotal" : 291.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 4844.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 111.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 1529.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 778.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 1391.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 6053.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 1008.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 3306.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 1809.6000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 1740.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 1252.8000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Mozzarella di Giovanni",
+		"GananciaTotal" : 1914.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 1614.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 1531.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 3981.3300
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 942.3000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 388.3500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 1242.7200
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 1967.6400
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 388.3500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 1786.4100
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Nord-Ost Matjeshering",
+		"GananciaTotal" : 932.0400
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Northwoods Cranberry Sauce",
+		"GananciaTotal" : 4480.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Northwoods Cranberry Sauce",
+		"GananciaTotal" : 2960.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Northwoods Cranberry Sauce",
+		"GananciaTotal" : 400.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Northwoods Cranberry Sauce",
+		"GananciaTotal" : 1200.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Northwoods Cranberry Sauce",
+		"GananciaTotal" : 4000.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Northwoods Cranberry Sauce",
+		"GananciaTotal" : 720.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 235.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 560.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 386.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 672.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 868.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 1050.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 70.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "NuNuCa Nu-Nougat-Creme",
+		"GananciaTotal" : 210.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 124.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 156.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 301.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 72.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 3601.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 930.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 598.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 52.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 2496.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 793.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Original Frankfurter grne Soe",
+		"GananciaTotal" : 559.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 1452.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 60.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 360.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 1236.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 2835.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 1209.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 600.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 1740.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 1350.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 585.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Outback Lager",
+		"GananciaTotal" : 45.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 2307.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 417.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 778.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 6885.2500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 472.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 558.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 1483.2500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 872.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 732.9000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 3943.7000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Pavlova",
+		"GananciaTotal" : 296.6500
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 393.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 2777.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 524.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 1834.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 2358.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 832.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 6592.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 984.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 1804.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 2755.2000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Perth Pasties",
+		"GananciaTotal" : 656.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 4147.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 230.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 624.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 8328.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 38.4000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 5208.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 96.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Pt chinois",
+		"GananciaTotal" : 840.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 1008.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 403.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 403.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 3906.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 919.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 1654.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 945.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 2562.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 1995.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Queso Cabrales",
+		"GananciaTotal" : 105.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 364.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 5776.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 570.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 1140.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 1368.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 1976.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 1520.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Queso Manchego La Pastora",
+		"GananciaTotal" : 152.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 3740.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 4708.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 1716.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 4939.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 9416.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 10703.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 12859.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 14795.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 220.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 7700.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Raclette Courdavault",
+		"GananciaTotal" : 5500.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 234.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 1450.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 390.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 312.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 312.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 1267.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 390.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 2301.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Ravioli Angelo",
+		"GananciaTotal" : 1150.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Rd Kaviar",
+		"GananciaTotal" : 300.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Rd Kaviar",
+		"GananciaTotal" : 690.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Rd Kaviar",
+		"GananciaTotal" : 1125.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Rd Kaviar",
+		"GananciaTotal" : 1380.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Rd Kaviar",
+		"GananciaTotal" : 525.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Rd Kaviar",
+		"GananciaTotal" : 180.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 744.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 1272.5500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 1435.3000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 1557.7500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 502.2000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 1503.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 720.7500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 46.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Rhnbru Klosterbier",
+		"GananciaTotal" : 868.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Rogede sild",
+		"GananciaTotal" : 114.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Rogede sild",
+		"GananciaTotal" : 3059.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Rogede sild",
+		"GananciaTotal" : 228.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Rogede sild",
+		"GananciaTotal" : 380.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Rogede sild",
+		"GananciaTotal" : 817.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Rogede sild",
+		"GananciaTotal" : 142.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 4404.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 509.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 4764.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 982.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 7267.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 1596.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 2052.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 1368.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 3556.8000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Rssle Sauerkraut",
+		"GananciaTotal" : 364.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 336.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 268.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 403.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 532.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 1372.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 336.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 2170.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 840.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Sasquatch Ale",
+		"GananciaTotal" : 420.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Schoggi Schokolade",
+		"GananciaTotal" : 1404.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Schoggi Schokolade",
+		"GananciaTotal" : 1755.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Schoggi Schokolade",
+		"GananciaTotal" : 9219.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Schoggi Schokolade",
+		"GananciaTotal" : 1536.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Schoggi Schokolade",
+		"GananciaTotal" : 1317.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 480.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 150.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 700.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 1935.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 600.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 922.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 1062.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 1737.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 250.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Scottish Longbreads",
+		"GananciaTotal" : 1525.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 266.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 134.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 4620.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 294.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 812.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 280.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 784.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 280.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 1722.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Singaporean Hokkien Fried Mee",
+		"GananciaTotal" : 140.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 4665.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 388.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 1814.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 3159.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 2916.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 1701.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 5670.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 2106.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Sir Rodney's Marmalade",
+		"GananciaTotal" : 1215.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 440.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 1610.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 1148.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 1978.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 950.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 2210.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 720.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Sir Rodney's Scones",
+		"GananciaTotal" : 580.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 6834.3000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 712.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 1852.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 1140.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 1140.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 1710.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 2565.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Sirop d'rable",
+		"GananciaTotal" : 484.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 432.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 700.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 2239.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 324.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 300.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 216.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 1044.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 288.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Spegesild",
+		"GananciaTotal" : 600.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 777.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 2448.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 144.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 576.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 3672.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 864.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 277.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 1044.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 2448.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 144.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 648.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Steeleye Stout",
+		"GananciaTotal" : 1494.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 7486.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 1773.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 591.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 2858.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 4828.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 9071.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 5916.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 7592.2000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 4930.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 1626.9000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Tarte au sucre",
+		"GananciaTotal" : 3155.2000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 773.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 131.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 1836.8000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 423.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 449.9000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 501.6000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 460.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 18.4000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 1177.6000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Teatime Chocolate Biscuits",
+		"GananciaTotal" : 386.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 7326.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 4851.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 22082.1200
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 10645.9400
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 1237.9000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 2228.2200
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 10150.7800
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 5446.7600
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 10150.7800
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Thringer Rostbratwurst",
+		"GananciaTotal" : 13616.9000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 167.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 1134.6000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 279.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 292.9500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 1232.2500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 2292.4500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 2743.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Tofu",
+		"GananciaTotal" : 488.2500
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 253.7000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 88.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 247.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 318.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 592.3000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 1243.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 1311.2500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 268.2000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 648.1500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Tourtire",
+		"GananciaTotal" : 149.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Tunnbrd",
+		"GananciaTotal" : 756.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Tunnbrd",
+		"GananciaTotal" : 1062.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Tunnbrd",
+		"GananciaTotal" : 862.2000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Tunnbrd",
+		"GananciaTotal" : 468.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Tunnbrd",
+		"GananciaTotal" : 792.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Tunnbrd",
+		"GananciaTotal" : 630.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Tunnbrd",
+		"GananciaTotal" : 270.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 360.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 240.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 6654.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 2700.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 90.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 780.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 4710.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 5130.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Uncle Bob's Organic Dried Pears",
+		"GananciaTotal" : 1800.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 195.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 195.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 845.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 325.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 406.2500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 650.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 747.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Valkoinen suklaa",
+		"GananciaTotal" : 146.2500
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 3,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 3088.8000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 737.1000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 3335.1000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 1228.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 2458.4000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 395.1000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 2282.8000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 4,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 1756.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Vegie-spread",
+		"GananciaTotal" : 2414.5000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 2,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 1037.4000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 1,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 2261.0000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 2327.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 3690.7500
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 957.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 3,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 1596.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 6949.2500
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 2327.5000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Wimmers gute Semmelkndel",
+		"GananciaTotal" : 1862.0000
+	},
+	{
+		"Año" : 1996,
+		"RegionID" : 4,
+		"ProductName" : "Zaanse koeken",
+		"GananciaTotal" : 121.6000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 1,
+		"ProductName" : "Zaanse koeken",
+		"GananciaTotal" : 1928.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 2,
+		"ProductName" : "Zaanse koeken",
+		"GananciaTotal" : 484.5000
+	},
+	{
+		"Año" : 1997,
+		"RegionID" : 4,
+		"ProductName" : "Zaanse koeken",
+		"GananciaTotal" : 779.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 3,
+		"ProductName" : "Zaanse koeken",
+		"GananciaTotal" : 665.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 1,
+		"ProductName" : "Zaanse koeken",
+		"GananciaTotal" : 247.0000
+	},
+	{
+		"Año" : 1998,
+		"RegionID" : 2,
+		"ProductName" : "Zaanse koeken",
+		"GananciaTotal" : 133.0000
+	}
+]}

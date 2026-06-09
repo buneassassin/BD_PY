@@ -1,8 +1,7 @@
 """
-Cálculo de ganancias y máximo por año/región en Python.
+Cálculo del producto con mayor ganancia por año y región en Python.
 
-Fórmula por cada venta:
-    ganancia = cantidad * precio
+Incluye todos los productos empatados en la ganancia máxima de cada grupo.
 """
 
 from decimal import Decimal
@@ -16,52 +15,42 @@ def ganancia_de_una_venta(cantidad, precio) -> Decimal:
     return a_numero(cantidad) * a_numero(precio)
 
 
-def _agrupar_por_producto(ventas_detalle: pd.DataFrame) -> pd.DataFrame:
+def calcular_maximos_en_python(ventas_detalle: pd.DataFrame) -> pd.DataFrame:
+    """
+    Por cada (año, región) devuelve todos los productos cuya ganancia
+    coincide con el máximo del grupo (empates incluidos).
+    """
     tabla = ventas_detalle.copy()
     tabla["ganancia_linea"] = tabla.apply(
-        lambda fila: ganancia_de_una_venta(fila["qty"], fila["price"]),
+        lambda fila: ganancia_de_una_venta(fila["Quantity"], fila["UnitPrice"]),
         axis=1,
     )
 
-    resumen = []
-    for claves, filas in tabla.groupby(["Anio", "Region", "Producto"]):
-        anio, region, producto = claves
-        ganancias = filas["ganancia_linea"]
-        resumen.append(
-            {
-                "Anio": anio,
-                "Region": region,
-                "Producto": producto,
-                "Ganancia": sum(ganancias, Decimal("0")),
-            }
-        )
+    por_producto = (
+        tabla.groupby(["Anio", "RegionID", "Region", "Producto"], as_index=False)
+        .agg(Ganancia=("ganancia_linea", lambda xs: sum(xs, Decimal("0"))))
+    )
 
-    return pd.DataFrame(resumen)
-
-
-def calcular_maximos_en_python(ventas_detalle: pd.DataFrame) -> pd.DataFrame:
-    """
-    Agrupa por año, región y producto; luego conserva el producto
-    con mayor ganancia en cada par (Anio, Region).
-    """
-    por_producto = _agrupar_por_producto(ventas_detalle)
     if por_producto.empty:
         return por_producto
 
     maximos = []
-    for (anio, region), filas in por_producto.groupby(["Anio", "Region"]):
-        mejor = filas.loc[filas["Ganancia"].idxmax()]
-        maximos.append(
-            {
-                "Anio": anio,
-                "Region": region,
-                "Producto": mejor["Producto"],
-                "Ganancia": mejor["Ganancia"],
-            }
-        )
+    for (anio, region_id), filas in por_producto.groupby(["Anio", "RegionID"]):
+        ganancia_max = filas["Ganancia"].max()
+        ganadores = filas[filas["Ganancia"] == ganancia_max]
+        for _, fila in ganadores.iterrows():
+            maximos.append(
+                {
+                    "Anio": anio,
+                    "RegionID": region_id,
+                    "Region": fila["Region"],
+                    "Producto": fila["Producto"],
+                    "Ganancia": fila["Ganancia"],
+                }
+            )
 
     return (
         pd.DataFrame(maximos)
-        .sort_values(["Anio", "Region"])
+        .sort_values(["Anio", "RegionID", "Producto"])
         .reset_index(drop=True)
     )
