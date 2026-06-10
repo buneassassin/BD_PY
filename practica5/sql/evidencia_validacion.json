@@ -1,0 +1,41 @@
+{
+  "validacion": {
+    "productos_sql_vs_python": "OK",
+    "clientes_sql_vs_python": "OK",
+    "regiones_verificadas": 4,
+    "grupos_cliente_verificados": 10
+  },
+  "ventas_globales": {
+    "total_con_region_empleado": 1354458.59,
+    "suma_ventas_productos_top": 159214.34,
+    "porcentaje_top_sobre_total": 11.75
+  },
+  "ventas_por_region": [
+    {"RegionID": 1, "Region": "Eastern", "Ventas": 705648.17},
+    {"RegionID": 2, "Region": "Westerns", "Ventas": 219494.09},
+    {"RegionID": 3, "Region": "Northern", "Ventas": 216265.03},
+    {"RegionID": 4, "Region": "Southern", "Ventas": 213051.30}
+  ],
+  "productos_top_region": [
+    {"RegionID": 1, "Region": "Eastern", "Producto": "Côte de Blaye", "Ventas": 88536.0},
+    {"RegionID": 2, "Region": "Westerns", "Producto": "Thüringer Rostbratwurst", "Ventas": 24262.84},
+    {"RegionID": 3, "Region": "Northern", "Producto": "Raclette Courdavault", "Ventas": 20856.0},
+    {"RegionID": 4, "Region": "Southern", "Producto": "Côte de Blaye", "Ventas": 25559.5}
+  ],
+  "clientes_top_por_anio_region": [
+    {"Anio": 1996, "Region": "Eastern", "Clientes": ["Queen Cozinha"], "Compras": 8432.0},
+    {"Anio": 1996, "Region": "Northern", "Clientes": ["Save-a-lot Markets"], "Compras": 1760.0},
+    {"Anio": 1997, "Region": "Eastern", "Clientes": ["Simons bistro"], "Compras": 10540.0},
+    {"Anio": 1997, "Region": "Westerns", "Clientes": ["Richter Supermarkt", "Save-a-lot Markets"], "Compras": 4456.44, "empate": true},
+    {"Anio": 1997, "Region": "Northern", "Clientes": ["QUICK-Stop"], "Compras": 3850.0},
+    {"Anio": 1997, "Region": "Southern", "Clientes": ["QUICK-Stop"], "Compras": 7905.0},
+    {"Anio": 1998, "Region": "Eastern", "Clientes": ["Hanari Carnes", "QUICK-Stop"], "Compras": 15810.0, "empate": true},
+    {"Anio": 1998, "Region": "Westerns", "Clientes": ["Save-a-lot Markets"], "Compras": 7427.4},
+    {"Anio": 1998, "Region": "Northern", "Clientes": ["Ernst Handel"], "Compras": 6050.0},
+    {"Anio": 1998, "Region": "Southern", "Clientes": ["Königlich Essen"], "Compras": 7905.0}
+  ],
+  "grupos_sin_datos": [
+    {"Anio": 1996, "Region": "Westerns", "motivo": "Sin ventas del producto top ese anio"},
+    {"Anio": 1996, "Region": "Southern", "motivo": "Sin ventas del producto top ese anio"}
+  ]
+}

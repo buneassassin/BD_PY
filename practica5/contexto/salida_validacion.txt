@@ -1,0 +1,79 @@
+﻿PRACTICA 5 - Producto top por region y clientes top (Northwind)
+Regiones: 1 Eastern | 2 Westerns | 3 Northern | 4 Southern
+========================================================================================
+1) Producto(s) mas vendidos por region (SQL)
+========================================================================================
+ Reg Region   Producto               Ventas   
+1     Eastern           Cte de Blaye 88,536.00
+2    Westerns Thringer Rostbratwurst 24,262.84
+3    Northern   Raclette Courdavault 20,856.00
+4    Southern           Cte de Blaye 25,559.50
+2) Cliente(s) top por anio y region - vista pivote (SQL)
+========================================================================================
+   Formato: Cliente (importe).  '-' = sin ventas del producto top ese anio.
+Anio  Eastern                                Westerns                                           Northern                       Southern                 
+----  -------------------------------------  -------------------------------------------------  -----------------------------  -------------------------
+1996  Queen Cozinha (8,432.00)               -                                                  Save-a-lot Markets (1,760.00)  -                        
+1997  Simons bistro (10,540.00)              Richter Supermarkt, Save-a-lot Markets (4,456.44)  QUICK-Stop (3,850.00)          QUICK-Stop (7,905.00)    
+1998  Hanari Carnes, QUICK-Stop (15,810.00)  Save-a-lot Markets (7,427.40)                      Ernst Handel (6,050.00)        Kniglich Essen (7,905.00)
+3) Cliente(s) top - detalle por anio y region (SQL)
+========================================================================================
+ Anio  Reg Region   Cliente(s)                             Compras  
+1996  1     Eastern                          Queen Cozinha  8,432.00
+1996  3    Northern                     Save-a-lot Markets  1,760.00
+1997  1     Eastern                          Simons bistro 10,540.00
+1997  2    Westerns Richter Supermarkt, Save-a-lot Markets  4,456.44
+1997  3    Northern                             QUICK-Stop  3,850.00
+1997  4    Southern                             QUICK-Stop  7,905.00
+1998  1     Eastern              Hanari Carnes, QUICK-Stop 15,810.00
+1998  2    Westerns                     Save-a-lot Markets  7,427.40
+1998  3    Northern                           Ernst Handel  6,050.00
+1998  4    Southern                         Kniglich Essen  7,905.00
+4) Misma vista pivote calculada en Python
+========================================================================================
+Anio  Eastern                                Westerns                                           Northern                       Southern                 
+----  -------------------------------------  -------------------------------------------------  -----------------------------  -------------------------
+1996  Queen Cozinha (8,432.00)               -                                                  Save-a-lot Markets (1,760.00)  -                        
+1997  Simons bistro (10,540.00)              Richter Supermarkt, Save-a-lot Markets (4,456.44)  QUICK-Stop (3,850.00)          QUICK-Stop (7,905.00)    
+1998  Hanari Carnes, QUICK-Stop (15,810.00)  Save-a-lot Markets (7,427.40)                      Ernst Handel (6,050.00)        Kniglich Essen (7,905.00)
+5) Comparacion SQL vs Python - productos (4 regiones)
+========================================================================================
+ Reg Region   Producto               Ventas SQL Ventas PY OK
+1     Eastern           Cte de Blaye 88,536.00  88,536.00 Si
+2    Westerns Thringer Rostbratwurst 24,262.84  24,262.84 Si
+3    Northern   Raclette Courdavault 20,856.00  20,856.00 Si
+4    Southern           Cte de Blaye 25,559.50  25,559.50 Si
+6) Comparacion SQL vs Python - clientes (por anio y region)
+========================================================================================
+ Anio  Reg Region   Cliente(s)                             Compras   OK
+1996  1     Eastern                          Queen Cozinha  8,432.00 Si
+1996  3    Northern                     Save-a-lot Markets  1,760.00 Si
+1997  1     Eastern                          Simons bistro 10,540.00 Si
+1997  2    Westerns Richter Supermarkt, Save-a-lot Markets  4,456.44 Si
+1997  3    Northern                             QUICK-Stop  3,850.00 Si
+1997  4    Southern                             QUICK-Stop  7,905.00 Si
+1998  1     Eastern              Hanari Carnes, QUICK-Stop 15,810.00 Si
+1998  2    Westerns                     Save-a-lot Markets  7,427.40 Si
+1998  3    Northern                           Ernst Handel  6,050.00 Si
+1998  4    Southern                         Kniglich Essen  7,905.00 Si
+7) Veredicto
+========================================================================================
+  VALIDACION OK: Python reproduce las consultas SQL (incluye empates).
+========================================================================================
+8) Evidencias de comprobacion
+========================================================================================
+  Ventas totales (region empleado):  1,354,458.59
+  Suma ventas productos top (4 reg): 159,214.34
+  Productos top / total regional:    11.75%
+
+  Productos SQL = Python:  SI (4/4 regiones)
+  Clientes SQL = Python:   SI (10/10 grupos con datos)
+  Grupos (anio x region):  10 con cliente top, 2 sin compras del producto top
+
+  Sin cliente top (no hubo ventas del producto top ese anio):
+    1996: Westerns, Southern
+
+  Empates (varios clientes con la misma compra maxima):
+    1997 Westerns: Richter Supermarkt, Save-a-lot Markets -> 4,456.44
+    1998 Eastern: Hanari Carnes, QUICK-Stop -> 15,810.00
+========================================================================================

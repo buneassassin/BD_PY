@@ -45,10 +45,48 @@ def practica4():
     return ok
 
 
+def practica5():
+    from practica5.conexion import cargar_datos_desde_mysql
+    from practica5.calculo import (
+        calcular_top_clientes_en_python,
+        calcular_top_productos_en_python,
+    )
+    from practica5.comparacion import (
+        comparar_clientes_sql_vs_python,
+        comparar_productos_sql_vs_python,
+    )
+    from practica5.reporte import imprimir_resultados
+
+    productos_sql, clientes_sql, detalle, global_ = cargar_datos_desde_mysql()
+    productos_python = calcular_top_productos_en_python(detalle)
+    clientes_python = calcular_top_clientes_en_python(detalle, productos_python)
+
+    ok_productos, comparacion_productos = comparar_productos_sql_vs_python(
+        productos_sql, productos_python
+    )
+    ok_clientes, comparacion_clientes = comparar_clientes_sql_vs_python(
+        clientes_sql, clientes_python
+    )
+
+    imprimir_resultados(
+        top_productos_sql=productos_sql,
+        top_productos_python=productos_python,
+        comparacion_productos=comparacion_productos,
+        ok_productos=ok_productos,
+        top_clientes_sql=clientes_sql,
+        top_clientes_python=clientes_python,
+        comparacion_clientes=comparacion_clientes,
+        ok_clientes=ok_clientes,
+        comparacion_global=global_,
+    )
+    return ok_productos and ok_clientes
+
+
 # Para agregar otra práctica: pon el número, el nombre y la función.
 PRACTICAS = {
     "3": ("Ganancias por autor", practica3),
     "4": ("Producto top por año y región", practica4),
+    "5": ("Producto top por región y clientes top", practica5),
 }
 
 
